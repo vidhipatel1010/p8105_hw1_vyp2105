@@ -57,11 +57,19 @@ mean(problem2_data$positive)
 mean(problem2_data$character_vector)
 mean(problem2_data$factor_vector)
 ```
+<<<<<<< HEAD
 The mean can be calculated for the numeric and logical variables. The mean of normal_sample is 0.06571973, while the mean of positive is 0.5. For the logical variable, TRUE is treated as 1 and FALSE as 0, so the mean represents the proportion of values that are TRUE. The mean cannot be calculated directly for the character or factor variables because these variables do not represent quantitative numeric measurements.
+=======
+The mean can be calculated for the numeric and logical variables. The mean of normal_sample is 0.07462564, while the mean of positive is 0.5. For the logical variable, TRUE is treated as 1 and FALSE as 0, so the mean represents the proportion of values that are TRUE. The mean cannot be calculated directly for the character or factor variables because these variables do not represent quantitative numeric measurements.
+>>>>>>> c42197544fbc10529bddceb44cc26bcdede8b9e0
 
 ```{r, eval=FALSE}
 as.numeric(problem2_data$positive)
 as.numeric(problem2_data$character_vector)
 as.numeric(problem2_data$factor_vector)
 ```
+<<<<<<< HEAD
 Applying `as.numeric()` to the logical variable converts TRUE to 1 and FALSE to 0. Applying it to the character variable produces NA values because the character values cannot be converted to numbers. Applying it to the factor variable converts the factor levels to their underlying integer codes. These results help explain the means above: logical values can be treated as 0 and 1, character values cannot be converted to numeric values, and factors represent categories rather than quantitative measurements.
+=======
+Applying as.numeric() to the logical variable converts TRUE to 1 and FALSE to 0. Applying it to the character variable produces NA values because the character values cannot be converted to numbers. Applying it to the factor variable converts the factor levels to their underlying integer codes. These results help explain the means above: logical values can be treated as 0 and 1, character values cannot be converted to numeric values, and factors represent categories rather than quantitative measurements.
+>>>>>>> c42197544fbc10529bddceb44cc26bcdede8b9e0
