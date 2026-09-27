@@ -30,3 +30,32 @@ penguin_plot <- ggplot(
 penguin_plot
 ggsave("penguin_scatterplot.png", plot = penguin_plot)
 ```
+## Problem 2
+
+```{r}
+set.seed(123)
+
+normal_sample <- rnorm(10)
+
+problem2_data <- data.frame(
+  normal_sample = normal_sample,
+  positive = normal_sample > 0,
+  character_vector = c("a", "b", "c", "d", "e", "f", "g", "h", "i", "j"),
+  factor_vector = factor(
+    c("low", "medium", "high", "low", "medium",
+      "high", "low", "medium", "high", "low")
+  )
+)
+```
+
+
+
+
+```{r}
+mean(problem2_data$normal_sample)
+mean(problem2_data$positive)
+mean(problem2_data$character_vector)
+mean(problem2_data$factor_vector)
+```
+The mean can be calculated for the numeric and logical variables. The mean of normal_sample is 0.07462564, while the mean of positive is 0.5. For the logical variable, TRUE is treated as 1 and FALSE as 0, so the mean represents the proportion of values that are TRUE. The mean cannot be calculated directly for the character or factor variables because these variables are not numeric or logical.
+
