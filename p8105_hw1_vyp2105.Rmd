@@ -5,3 +5,28 @@ date: "2026-09-26"
 output: github_document
 ---
 
+## Problem 1
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+```{r}
+n_rows <- nrow(penguins)
+n_columns <- ncol(penguins)
+mean_flipper_length <- mean(penguins$flipper_length_mm, na.rm = TRUE)
+```
+The `penguins` dataset contains measurements for penguins from three species: `r paste(unique(penguins$species), collapse = ", ")`, collected from the islands `r paste(unique(penguins$island), collapse = ", ")`. Important variables include `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_g`, `sex`, and `year`. The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r round(mean_flipper_length, 2)` mm.
+
+```{r}
+library(ggplot2)
+
+penguin_plot <- ggplot(
+  penguins,
+  aes(x = bill_length_mm, y = flipper_length_mm, color = species)
+) +
+  geom_point()
+
+penguin_plot
+ggsave("penguin_scatterplot.png", plot = penguin_plot)
+```
