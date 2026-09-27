@@ -16,7 +16,7 @@ n_rows <- nrow(penguins)
 n_columns <- ncol(penguins)
 mean_flipper_length <- mean(penguins$flipper_length_mm, na.rm = TRUE)
 ```
-The `penguins` dataset contains measurements for penguins from three species: `r paste(unique(penguins$species), collapse = ", ")`, collected from the islands `r paste(unique(penguins$island), collapse = ", ")`. Important variables include `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_g`, `sex`, and `year`. The dataset contains `r nrow(penguins)` rows and `r ncol(penguins)` columns. The mean flipper length is `r round(mean_flipper_length, 2)` mm.
+The `penguins` dataset contains measurements for penguins from three species: `r paste(unique(penguins$species), collapse = ", ")`, collected from the islands `r paste(unique(penguins$island), collapse = ", ")`. Important variables include `bill_length_mm`, `bill_depth_mm`, `flipper_length_mm`, `body_mass_g`, `sex`, and `year`. The dataset contains `r n_rows` rows and `r n_columns` columns. The mean flipper length is `r round(mean_flipper_length, 2)` mm.
 
 ```{r}
 library(ggplot2)
@@ -33,7 +33,7 @@ ggsave("penguin_scatterplot.png", plot = penguin_plot)
 ## Problem 2
 
 ```{r}
-set.seed(123)
+set.seed(2105)
 
 normal_sample <- rnorm(10)
 
@@ -57,5 +57,11 @@ mean(problem2_data$positive)
 mean(problem2_data$character_vector)
 mean(problem2_data$factor_vector)
 ```
-The mean can be calculated for the numeric and logical variables. The mean of normal_sample is 0.07462564, while the mean of positive is 0.5. For the logical variable, TRUE is treated as 1 and FALSE as 0, so the mean represents the proportion of values that are TRUE. The mean cannot be calculated directly for the character or factor variables because these variables are not numeric or logical.
+The mean can be calculated for the numeric and logical variables. The mean of normal_sample is 0.07462564, while the mean of positive is 0.5. For the logical variable, TRUE is treated as 1 and FALSE as 0, so the mean represents the proportion of values that are TRUE. The mean cannot be calculated directly for the character or factor variables because these variables do not represent quantitative numeric measurements.
 
+```{r, eval=FALSE}
+as.numeric(problem2_data$positive)
+as.numeric(problem2_data$character_vector)
+as.numeric(problem2_data$factor_vector)
+```
+Applying as.numeric( ) to the logical variable converts TRUE to 1 and FALSE to 0. Applying it to the character variable produces NA values because the character values cannot be converted to numbers. Applying it to the factor variable converts the factor levels to their underlying integer codes. These results help explain the means above: logical values can be treated as 0 and 1, character values cannot be converted to numeric values, and factors represent categories rather than quantitative measurements.
